@@ -7,6 +7,9 @@
 
 function getTotalPrice(object) {
   // Aquí tu código
+  const sum = Object.values(object);
+  const result = sum.reduce((acc, curr) => acc + curr, 0);
+  return result; 
 }
 
 // =============================================================================
