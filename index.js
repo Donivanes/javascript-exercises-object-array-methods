@@ -7,6 +7,10 @@
 
 function getTotalPrice(object) {
   // Aquí tu código
+  return Object.values(object).reduce(
+    (acumulator, element) => acumulator + element,
+    0
+  );
 }
 
 // =============================================================================
@@ -17,6 +21,19 @@ function getTotalPrice(object) {
 
 function getAverageAge(object) {
   // Aquí tu código
+  const ages = Object.values(object);
+  return (ages.reduce(
+    (acumulator, element) => acumulator + element,
+    0
+  ) / ages.length
+
+  )
+/*   return (
+    Object.values(object).reduce(
+      (acumulator, element) => acumulator + element,
+      0
+    ) / Object.values(object).length
+  ); */
 }
 
 // =============================================================================
@@ -28,6 +45,7 @@ function getAverageAge(object) {
 
 function getPeopleArray(object) {
   // Aquí tu código
+  return Object.keys(object)
 }
 
 // =============================================================================
