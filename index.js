@@ -49,8 +49,8 @@ function getPeopleArray(object) {
     resultArray[i] = {};
     resultArray[i].name = objectKey[i];
     resultArray[i].age = objectValues[i];
-    }
-    return resultArray;
+  }
+  return resultArray;
 }
 // return Object.entries(object).map(([name, age]) => ({ name, age }));
 
@@ -64,8 +64,11 @@ function getPeopleArray(object) {
 
 function getAbundantFruits(object) {
   // Aquí tu código
-  let fruitQuantity = Object.entries(object).map(([fruit, quantity]) => ({fruit, quantity}))
-  return fruitQuantity.filter(fruit => fruit.quantity > 10)
+  let fruitQuantity = Object.entries(object).map(([fruit, quantity]) => ({
+    fruit,
+    quantity,
+  }));
+  return fruitQuantity.filter((fruit) => fruit.quantity > 10);
 }
 
 // =============================================================================
@@ -76,8 +79,11 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  const propertySum = Object.keys(object).join("").length;
-  const valueSum = Object.values(object).join("").length;
-  return total = propertySum + valueSum
+  return Object.entries(object).reduce(
+    (acc, [key, value]) => acc + key.length + value.length,
+    0
+  );
 }
-
+/*     const propertySum = Object.keys(object).join("").length;
+    const valueSum = Object.values(object).join("").length;
+    return (total = propertySum + valueSum); */
