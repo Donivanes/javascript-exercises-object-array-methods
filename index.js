@@ -56,9 +56,33 @@ function getPeopleArray(object) {
 // Ej resultado: [ { fruit: 'Banana', quantity: 15 }, { fruit: 'Grape', quantity: 12 }]
 // =============================================================================
 
+let object = {
+  Apple: 5,
+  Banana: 15,
+  Orange: 8,
+  Grape: 12,
+};
+
 function getAbundantFruits(object) {
   // Aquí tu código
+  let Result = [];
+  const newArray = Object.entries(object);
+
+  for (i = 0; i < newArray.length; i++) {
+    const newObj = {
+      fruit: newArray[i][0],
+      quantity: newArray[i][1],
+    };
+    console.log(newObj);
+    if (newObj["quantity"] > 10) {
+      Result.push(newObj);
+    }
+  }
+  return Result;
+  console.log(Result);
 }
+
+console.log(getAbundantFruits(object));
 
 // =============================================================================
 // 5. Calcula la suma de todos los caracteres de un objeto, tanto la suma de los
