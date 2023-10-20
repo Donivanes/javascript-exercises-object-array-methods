@@ -76,5 +76,8 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const propertySum = Object.keys(object).join("").length;
+  const valueSum = Object.values(object).join("").length;
+  return total = propertySum + valueSum
 }
+
