@@ -56,13 +56,6 @@ function getPeopleArray(object) {
 // Ej resultado: [ { fruit: 'Banana', quantity: 15 }, { fruit: 'Grape', quantity: 12 }]
 // =============================================================================
 
-let object = {
-  Apple: 5,
-  Banana: 15,
-  Orange: 8,
-  Grape: 12,
-};
-
 function getAbundantFruits(object) {
   // Aquí tu código
   let Result = [];
@@ -82,8 +75,6 @@ function getAbundantFruits(object) {
   console.log(Result);
 }
 
-console.log(getAbundantFruits(object));
-
 // =============================================================================
 // 5. Calcula la suma de todos los caracteres de un objeto, tanto la suma de los
 // caracteres de las propiedades como la suma de los caracteres de los valores.
@@ -91,6 +82,21 @@ console.log(getAbundantFruits(object));
 // book: { titulo: 'El señor de los anillos', autor: 'J.R.R. Tolkien', genero: 'Fantasía' }
 // =============================================================================
 
+let book = {
+  titulo: "El señor de los anillos",
+  autor: "J.R.R. Tolkien",
+  genero: "Fantasía",
+};
+
 function getCharacterCount(object) {
   // Aquí tu código
+  const myArray = Object.entries(object);
+  console.log(myArray);
+  const newArray = myArray.join();
+  console.log(newArray);
+  const comma = ",";
+  const withoutComma = [...newArray].filter((element) => element !== comma);
+  return withoutComma.length;
 }
+
+console.log(getCharacterCount(book));
