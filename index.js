@@ -2,14 +2,14 @@
 // 1. Calcula el precio total de los items de un objeto productPrices
 // cuya propiedad es el nombre del producto y el valor es el precio del producto.
 // Usa object.values()
-// Ej objeto: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
+// Ej object: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
 // =============================================================================
 
 function getTotalPrice(object) {
   // Aquí tu código
   const sum = Object.values(object);
   const result = sum.reduce((acc, curr) => acc + curr, 0);
-  return result; 
+  return result;
 }
 
 // =============================================================================
@@ -22,7 +22,7 @@ function getAverageAge(object) {
   // Aquí tu código
   const sum = Object.values(object);
   const result = sum.reduce((acc, curr) => acc + curr, 0);
-  return result / sum.length; 
+  return result / sum.length;
 }
 
 // =============================================================================
@@ -34,6 +34,18 @@ function getAverageAge(object) {
 
 function getPeopleArray(object) {
   // Aquí tu código
+  const newArray = [];
+  const keys = Object.keys(object);
+
+  for (i = 0; i < keys.length; i++) {
+    const newObject = {
+      name: keys[i],
+      age: object[keys[i]],
+    };
+    console.log(newObject);
+    newArray.push(newObject);
+  }
+  return newArray;
 }
 
 // =============================================================================
