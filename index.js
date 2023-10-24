@@ -6,7 +6,11 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  const prices = Object.values(object);
+  console.log(prices);
+  const getTotalPrice = prices.reduce((acc, e) => acc + e, 0);
+  console.log(getTotalPrice);
+  return getTotalPrice;
 }
 
 // =============================================================================
@@ -16,7 +20,11 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const ages = Object.values(object);
+  console.log(ages);
+  const getAverageAges = ages.reduce((acc, e) => acc + e, 0) / ages.length;
+  console.log(getAverageAges);
+  return getAverageAges;
 }
 
 // =============================================================================
@@ -27,7 +35,9 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  const getPeopleArray = Object.keys(object).map((e) => ({name: e, age: object[e]}));
+  console.log(getPeopleArray);
+  return getPeopleArray;
 }
 
 // =============================================================================
@@ -39,7 +49,9 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const getAbundantFruits = Object.entries(object).filter((e) => e[1] > 10).map((e) => ({fruit: e[0], quantity: e[1]}));
+  console.log(getAbundantFruits);
+  return getAbundantFruits;
 }
 
 // =============================================================================
@@ -50,5 +62,8 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const newArray = Object.entries(object).flat().join('');
+  const getCharacterCount = Array.from(newArray).length;
+  console.log(getCharacterCount);
+  return getCharacterCount;
 }
