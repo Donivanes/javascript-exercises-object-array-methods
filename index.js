@@ -60,7 +60,14 @@ function getPeopleArray(object){
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const frutas = Object.entries(object);
+  const resultado = frutas.filter(function (elemento) {
+      return elemento[1] > 10;
+    });
+  const result = resultado.map(function (elemento) {
+      return { fruit: elemento[0], quantity: elemento[1] };
+    });
+  return result;
 }
 
 // =============================================================================
@@ -71,5 +78,11 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+const array = Object.entries(object);
+  const characterCount = array.reduce((contador, [clave, valor]) => {
+    contador += clave.length;
+    contador += valor.length;
+    return contador;
+  }, 0);
+  return characterCount;
 }
