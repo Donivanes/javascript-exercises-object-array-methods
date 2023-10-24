@@ -6,7 +6,9 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  const price = Object.values(object);
+  const result = price.reduce((acumulador, elemento) => acumulador + elemento, 0)
+  return result
 }
 
 // =============================================================================
@@ -14,9 +16,14 @@ function getTotalPrice(object) {
 // calcula la media de edad de las personas. Usa object.values()
 // Ej objeto: { Alice: 25, Bob: 30, Charlie: 28, David: 35 }
 // =============================================================================
-
+// function getAverage(numbers) {
+//   const average = numbers.reduce((acumulador, elemento) => acumulador + elemento,0) /numbers.length;
+//   return average
+// }
 function getAverageAge(object) {
-  // Aquí tu código
+  const media = Object.values(object);
+  const mediaResult = media.reduce((acumulador, elemento) => acumulador + elemento,0)/ media.length;
+  return mediaResult
 }
 
 // =============================================================================
@@ -26,9 +33,23 @@ function getAverageAge(object) {
 // Ej resultado: [{ name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }, ...]
 // =============================================================================
 
-function getPeopleArray(object) {
-  // Aquí tu código
+// function getPeopleArray(object) {
+//   const keys = Object.keys(object);
+//   const peopleArray = keys.map(key => {
+//     return {
+//       name: key,
+//       age: object[key]
+//     };
+//   });
+//   return peopleArray;
+// }
+function getPeopleArray(object){
+  const personas = Object.keys(object);
+  const result = personas.map((el) => ({name: el, age: object[el]}))
+  return result
 }
+
+
 
 // =============================================================================
 // 4. Dado un objeto con nombres de frutas como claves y su cantidad como valor,
