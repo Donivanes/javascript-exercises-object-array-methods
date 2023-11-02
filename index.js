@@ -4,9 +4,13 @@
 // Usa object.values()
 // Ej objeto: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
 // =============================================================================
-
 function getTotalPrice(object) {
-  // Aquí tu código
+  const price = Object.values(object)
+  
+  const totalPrice = price.reduce(function(valorActual,valorAcumulado, indice, array) {
+    return valorActual + valorAcumulado
+  })
+  return totalPrice
 }
 
 // =============================================================================
@@ -14,9 +18,16 @@ function getTotalPrice(object) {
 // calcula la media de edad de las personas. Usa object.values()
 // Ej objeto: { Alice: 25, Bob: 30, Charlie: 28, David: 35 }
 // =============================================================================
-
 function getAverageAge(object) {
-  // Aquí tu código
+  const ages = Object.values(object)
+    
+  const ageString = ages.reduce(function(valorActual, valorAcumulado, indice, array) {
+    console.log({valorActual, valorAcumulado})
+    return valorActual + valorAcumulado;
+  })
+  const averageAge = (ageString / ages.length)
+  return averageAge
+
 }
 
 // =============================================================================
@@ -27,8 +38,15 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  const arrao = Object.keys(object);
+  const peopleArray = arrao.map((name) => {
+    const age = object[name];
+    return { name, age };
+  });
+
+  return peopleArray;
 }
+
 
 // =============================================================================
 // 4. Dado un objeto con nombres de frutas como claves y su cantidad como valor,
@@ -39,8 +57,18 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const fruitEntries = Object.entries(object);
+  console.log(fruitEntries)
+  const abundantFruits = fruitEntries.filter(([fruit, quantity]) => quantity > 10);
+  console.log(abundantFruits)
+  const result = abundantFruits.map(([fruit, quantity]) => ({
+    fruit,
+    quantity,
+  }));
+
+  return result;
 }
+
 
 // =============================================================================
 // 5. Calcula la suma de todos los caracteres de un objeto, tanto la suma de los
@@ -50,5 +78,6 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const propCharacters = Object.keys(object)
+  
 }
