@@ -10,7 +10,7 @@ function getTotalPrice(object) {
   //console.log;
   //const mylist = { laptop: 800, teléfono: 600, tablet: 400, auriculares: 100 };
   const amounts = Object.values(object);
-  console.log(amounts);
+  //console.log(amounts);
   const total = amounts.reduce((total, indivpPice) => total + indivpPice, 0);
   return total;
 }
@@ -23,9 +23,9 @@ function getTotalPrice(object) {
 
 function getAverageAge(object) {
   // Aquí tu código
- // console.log(object);
+  // console.log(object);
   const ages = Object.values(object);
-  console.log(ages);
+  //console.log(ages);
   const totalAge = ages.reduce((total, age) => total + age, 0);
   //console.log(totalAge);
   const avgAge = totalAge / ages.length;
@@ -42,25 +42,21 @@ function getAverageAge(object) {
 
 function getPeopleArray(object) {
   // Aquí tu código
-  console.log(object);
+  // console.log(object);
   const name = Object.keys(object);
-  console.log(name);
- 
-  
-  const nuevoArray = name.map(function(names) {
-  return {
-    name: names,
-    age: object[names],
-  }
-  ;
-})
-console.log(nuevoArray);
+  //console.log(name);
+
+  const nuevoArray = name.map(function (names) {
+    return {
+      name: names,
+      age: object[names],
+    };
+  });
+  //console.log(nuevoArray);
   return nuevoArray;
 }
-  //const concatArray = keys.concat(value);
-  //console.log(concatArray);
-
-
+//const concatArray = keys.concat(value);
+//console.log(concatArray);
 
 // =============================================================================
 // 4. Dado un objeto con nombres de frutas como claves y su cantidad como valor,
@@ -72,23 +68,22 @@ console.log(nuevoArray);
 
 function getAbundantFruits(object) {
   // Aquí tu código
-  const fruitArrays =  Object.entries(object);
-  console.log(fruitArrays);
-  const filteredArray = fruitArrays.filter(function([,quantity]) {
+  const fruitArrays = Object.entries(object);
+  // console.log(fruitArrays);
+  const filteredArray = fruitArrays.filter(function ([, quantity]) {
     return quantity > 10;
-  })
+  });
 
-  console.log(filteredArray);
-  
-const final = filteredArray.map(function([fruit, quantity]) {
-  return {
-  fruit: fruit,
-  quantity: quantity,
-  }
+  //console.log(filteredArray);
 
-})
-   console.log(final);
-   return final;
+  const final = filteredArray.map(function ([fruit, quantity]) {
+    return {
+      fruit: fruit,
+      quantity: quantity,
+    };
+  });
+  //console.log(final);
+  return final;
 }
 
 // =============================================================================
@@ -100,4 +95,76 @@ const final = filteredArray.map(function([fruit, quantity]) {
 
 function getCharacterCount(object) {
   // Aquí tu código
+  //console.log(object);
+  const keys = Object.keys(object);
+  //console.log(keys);
+
+  let KeyTextLength = 0;
+  keys.forEach(function (keyItem) {
+    KeyTextLength = KeyTextLength + keyItem.length;
+  });
+  //return KeyTextLength;
+  //console.log(KeyTextLength);
+
+  const values = Object.values(object);
+  //console.log(values);
+
+  let valueTextLength = 0;
+  values.forEach(function (valueItem) {
+    valueTextLength = valueTextLength + valueItem.length;
+  });
+ // console.log(valueTextLength);
+
+  return KeyTextLength + valueTextLength;
+  //console.log(KeyTextLength + valueTextLength);
 }
+
+
+
+
+/*
+
+
+
+
+function getCharacterCount(object) {
+  let total = 0;
+
+  // Loop through each key in the object
+  for (let key in object) {
+    // Add the length of the key (property name)
+    total += key.length;
+
+    // Add the length of the value (converted to a string to handle non-string values)
+    total += String(object[key]).length;
+  }
+
+  return total; // Return the total count of characters
+}
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+another way to to this i found... not using a .forEach... but rath a "For ...in"
+for... in.. are used on Objects OR Arrays, so this may be better in the future. I don't think we covered this today though......????
+//for...in:
+
+    Best for objects when you want to loop through the keys (property names) of an object.
+
+
+.forEach():
+
+    Not applicable to objects directly. If you need to iterate over the values of an object, 
+    you'd first need to get the object's values into an array using Object.values() or its keys using Object.keys().
+
+Use Cases
+
+    for...in:
+        Used primarily for iterating over objects. It loops over the keys of the object.
+        It can be used with arrays, but it loops over the indices (keys) of the array, which is less useful for arrays and can cause confusion.
+
+    .forEach():
+        Specifically designed to loop over the values in an array.
+        Cannot be used with objects directly, only with arrays or array-like structures.
+*/
