@@ -17,7 +17,7 @@ function getTotalPrice(object) {
   return total;
 
 }
-
+//ejemplo
 const productPrices = { laptop: 800, phone: 600, tablet: 400, headphones: 100 };
 console.log (getTotalPrice(productPrices));
 
