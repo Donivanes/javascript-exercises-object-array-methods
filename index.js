@@ -6,9 +6,8 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  return Object.values(object).reduce((i, value) => i+value, 0);
 }
-
 // =============================================================================
 // 2. Dado un objeto con nombres de personas como claves y edades como valores,
 // calcula la media de edad de las personas. Usa object.values()
@@ -16,7 +15,9 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const values = Object.values(object);
+  const sumTotal = values.reduce((i, value) => i+value, 0);
+  return sumTotal / values.length; 
 }
 
 // =============================================================================
@@ -27,7 +28,7 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  return Object.keys(object).map((entry) => ({ name: entry, age: object[entry]}));
 }
 
 // =============================================================================
@@ -39,7 +40,8 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const filteredObject = Object.entries(object).filter((arr => arr[1] > 10));
+  return filteredObject.map((arr) => ({fruit: arr[0], quantity: arr[1]}));
 }
 
 // =============================================================================
@@ -49,6 +51,23 @@ function getAbundantFruits(object) {
 // book: { titulo: 'El señor de los anillos', autor: 'J.R.R. Tolkien', genero: 'Fantasía' }
 // =============================================================================
 
+
 function getCharacterCount(object) {
-  // Aquí tu código
+  return Object.entries(object).reduce((i, arr) => i + arr[0].length + arr[1].length , 0);
 }
+
+/*
+ -- IGNORAR
+function getCosaRara(object) {
+ Object.entries(object).reduce((i, arr) => {
+    return i + arr.reduce((j, arr2) => {
+      return j + arr2.reduce((k, string) => {
+        return k + string.reduce((char, l) => {
+          return l + char;
+        })
+      }, 0);
+    }, 0);
+  }, 0);
+}
+
+*/
