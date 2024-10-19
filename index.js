@@ -7,6 +7,12 @@
 
 function getTotalPrice(object) {
   // Aquí tu código
+  //console.log;
+  //const mylist = { laptop: 800, teléfono: 600, tablet: 400, auriculares: 100 };
+  const amounts = Object.values(object);
+  console.log(amounts);
+  const total = amounts.reduce((total, indivpPice) => total + indivpPice, 0);
+  return total;
 }
 
 // =============================================================================
@@ -17,6 +23,14 @@ function getTotalPrice(object) {
 
 function getAverageAge(object) {
   // Aquí tu código
+ // console.log(object);
+  const ages = Object.values(object);
+  console.log(ages);
+  const totalAge = ages.reduce((total, age) => total + age, 0);
+  //console.log(totalAge);
+  const avgAge = totalAge / ages.length;
+  //console.log(avgAge);
+  return avgAge;
 }
 
 // =============================================================================
@@ -28,7 +42,25 @@ function getAverageAge(object) {
 
 function getPeopleArray(object) {
   // Aquí tu código
+  console.log(object);
+  const name = Object.keys(object);
+  console.log(name);
+ 
+  
+  const nuevoArray = name.map(function(names) {
+  return {
+    name: names,
+    age: object[names],
+  }
+  ;
+})
+console.log(nuevoArray);
+  return nuevoArray;
 }
+  //const concatArray = keys.concat(value);
+  //console.log(concatArray);
+
+
 
 // =============================================================================
 // 4. Dado un objeto con nombres de frutas como claves y su cantidad como valor,
@@ -40,6 +72,23 @@ function getPeopleArray(object) {
 
 function getAbundantFruits(object) {
   // Aquí tu código
+  const fruitArrays =  Object.entries(object);
+  console.log(fruitArrays);
+  const filteredArray = fruitArrays.filter(function([,quantity]) {
+    return quantity > 10;
+  })
+
+  console.log(filteredArray);
+  
+const final = filteredArray.map(function([fruit, quantity]) {
+  return {
+  fruit: fruit,
+  quantity: quantity,
+  }
+
+})
+   console.log(final);
+   return final;
 }
 
 // =============================================================================
