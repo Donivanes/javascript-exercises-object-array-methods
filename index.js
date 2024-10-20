@@ -5,8 +5,19 @@
 // Ej objeto: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
 // =============================================================================
 
+function getTotalPrice2(object) {
+  const valuesArr = Object.values(object);
+  let totalprice = 0;
+  for (i = 0; i < valuesArr.length; i = i + 1) { //el bucle para iterar el array que tenemos (valuesArr)
+    totalprice = totalprice + valuesArr[i]; //suma del acumulador
+    //totalprice += valuesArr[i] (se utiliza para acumular en la misma variable )
+  }
+  console.log(totalprice);
+  return totalprice;
+}
+
 function getTotalPrice(object) {
-  // Aquí tu código
+  return Object.values(object).reduce((acum, value) => acum + value, 0);
 }
 
 // =============================================================================
@@ -16,8 +27,21 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+ // Obtenemos un array con las edades (valores del objeto)
+ const ages = Object.values(object);
+
+ // Calculamos la suma de todas las edades usando reduce
+ const sumOfAges = ages.reduce((sum, age) => sum + age, 0);
+
+ // Calculamos la media dividiendo la suma entre el número de personas
+ const average = sumOfAges / ages.length;
+
+ // Retornamos el promedio calculado
+ return average;
 }
+
+
+
 
 // =============================================================================
 // 3. Crea un array de objetos a partir de un objeto con nombres de personas
