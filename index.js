@@ -4,9 +4,10 @@
 // Usa object.values()
 // Ej objeto: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
 // =============================================================================
-
 function getTotalPrice(object) {
-  // Aquí tu código
+  const prices = Object.values(object);
+  const sum = prices.reduce((acc, el) => acc + el, 0);
+  return sum;
 }
 
 // =============================================================================
@@ -14,9 +15,10 @@ function getTotalPrice(object) {
 // calcula la media de edad de las personas. Usa object.values()
 // Ej objeto: { Alice: 25, Bob: 30, Charlie: 28, David: 35 }
 // =============================================================================
-
 function getAverageAge(object) {
-  // Aquí tu código
+  const agesAv = Object.values(object);
+  const sum = agesAv.reduce((acc, el) => acc + el, 0);
+  return sum / Object.values(object).length;
 }
 
 // =============================================================================
@@ -25,9 +27,11 @@ function getAverageAge(object) {
 // Ej objeto: { Alice: 25, Bob: 30, Charlie: 28, David: 35 }
 // Ej resultado: [{ name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }, ...]
 // =============================================================================
-
 function getPeopleArray(object) {
-  // Aquí tu código
+  const peopleArr = Object.keys(object).map((nombre) => {
+    return { name: nombre, age: object[nombre] }; //object[nombre] accede al valor
+  });
+  return peopleArr;
 }
 
 // =============================================================================
@@ -37,9 +41,10 @@ function getPeopleArray(object) {
 // Ej objeto: { Apple: 5, Banana: 15, Orange: 8, Grape: 12 }
 // Ej resultado: [ { fruit: 'Banana', quantity: 15 }, { fruit: 'Grape', quantity: 12 }]
 // =============================================================================
-
 function getAbundantFruits(object) {
-  // Aquí tu código
+  return Object.entries(object)
+    .filter(([fruit, quantity]) => quantity > 10)
+    .map(([fruit, quantity]) => ({ fruit, quantity }));
 }
 
 // =============================================================================
@@ -48,7 +53,11 @@ function getAbundantFruits(object) {
 // El resultado debe ser un único numero.
 // book: { titulo: 'El señor de los anillos', autor: 'J.R.R. Tolkien', genero: 'Fantasía' }
 // =============================================================================
-
 function getCharacterCount(object) {
-  // Aquí tu código
+  const keys = Object.keys(object);
+  const values = Object.values(object);
+
+  const sumChar = (sum) => sum.reduce((acc, el) => acc + el.length, 0);
+
+  return (totalChar = sumChar(keys) + sumChar(values));
 }
