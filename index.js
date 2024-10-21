@@ -5,8 +5,20 @@
 // Ej objeto: { laptop: 800, phone: 600, tablet: 400, headphones: 100 }
 // =============================================================================
 
+function getTotalPrice2(object) {
+  const valuesArr = Object.values(object);
+  let totalprice = 0;
+  for (i = 0; i < valuesArr.length; i = i + 1) {
+    //el bucle para iterar el array que tenemos (valuesArr)
+    totalprice = totalprice + valuesArr[i]; //suma del acumulador
+    //totalprice += valuesArr[i] (se utiliza para acumular en la misma variable )
+  }
+  console.log(totalprice);
+  return totalprice;
+}
+
 function getTotalPrice(object) {
-  // Aquí tu código
+  return Object.values(object).reduce((acum, value) => acum + value, 0);
 }
 
 // =============================================================================
@@ -16,7 +28,13 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const ages = Object.values(object); // Obtenemos un array con las edades (valores del objeto)
+
+  const sumOfAges = ages.reduce((sum, age) => sum + age, 0); // Calculamos la suma de todas las edades usando reduce
+
+  const average = sumOfAges / ages.length; // Calculamos la media dividiendo la suma entre el número de personas
+
+  return average; // Retornamos el promedio calculado
 }
 
 // =============================================================================
@@ -27,7 +45,15 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  // Obtenemos un array con los nombres (claves del objeto)
+  console.log("1");
+  const names = Object.keys(object); // Mapeamos cada nombre y creamos un nuevo objeto con 'name' y 'age'
+  const peopleArray = names.map((name) => ({
+    name: name, // Asignamos el nombre a la propiedad 'name'
+    age: object[name], // Accedemos a la edad usando el nombre como clave en el objeto original}));
+  }));
+  console.log(peopleArray); // Retornamos el array de personas
+  return peopleArray;
 }
 
 // =============================================================================
@@ -39,7 +65,20 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  
+  const entries = Object.entries(object);// Obtenemos un array de pares [nombre de fruta, cantidad]
+
+ 
+  const filteredFruits = entries.filter(([fruit, quantity]) => quantity > 10); // Filtramos las frutas que tienen una cantidad mayor a 10
+
+  
+  const result = filteredFruits.map(([fruit, quantity]) => ({
+    fruit: fruit,
+    quantity: quantity,
+  }));// Mapeamos el array filtrado a un array de objetos con 'fruit' y 'quantity'
+
+  
+  return result;// Retornamos el array de frutas abundantes
 }
 
 // =============================================================================
@@ -50,5 +89,14 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  // Obtenemos los nombres de las propiedades (claves del objeto)
+  const keys = Object.keys(object); // Obtenemos los valores del objeto
+  const values = Object.values(object); // Contamos los caracteres de las propiedades sumando las longitudes de cada clave
+  const keysCharCount = keys.reduce((sum, key) => sum + key.length, 0); // Contamos los caracteres de los valores sumando las longitudes de cada valor (convertido a string)
+  const valuesCharCount = values.reduce(
+    (sum, value) => sum + String(value).length,
+    0
+  ); // Sumamos los caracteres de las claves y los valores
+  const totalCharCount = keysCharCount + valuesCharCount; // Retornamos la suma total de caracteres
+  return totalCharCount;
 }
