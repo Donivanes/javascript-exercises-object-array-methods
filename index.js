@@ -6,7 +6,8 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  const sumar = Object.values(object).reduce((sum, el) => sum + el, 0);
+  return sumar;
 }
 
 // =============================================================================
@@ -16,7 +17,8 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const media = Object.values(object).reduce((sum, arr) => sum + arr, 0);
+  return media / Object.values(object).length;
 }
 
 // =============================================================================
@@ -27,7 +29,14 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  const arrObject = Object.entries(object).map((nameAge) => {
+    const object = {
+      name: nameAge[0],
+      age: nameAge[1],
+    };
+    return object;
+  });
+  return arrObject;
 }
 
 // =============================================================================
@@ -39,7 +48,17 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const arrObjectFilter = Object.entries(object).filter(
+    (fruitQuanity) => fruitQuanity[1] >= 10
+  );
+  const arrObject = arrObjectFilter.map((fruitQuanityMayor10) => {
+    const object = {
+      fruit: fruitQuanityMayor10[0],
+      quantity: fruitQuanityMayor10[1],
+    };
+    return object;
+  });
+  return arrObject;
 }
 
 // =============================================================================
@@ -50,5 +69,6 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const totalLength = Object.entries(object).flat().length
+  return totalLength
 }
