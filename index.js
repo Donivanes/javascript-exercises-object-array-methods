@@ -6,7 +6,9 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  const values = Object.values(object);
+  const sumtotal = values.reduce((total, price) => total + price, 0);
+  return sumtotal;
 }
 
 // =============================================================================
@@ -16,7 +18,10 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const ages = Object.values(object);
+  const totalAges = ages.reduce((total, ages) => total + ages, 0);
+  const media = totalAges / ages.length;
+  return media;
 }
 
 // =============================================================================
@@ -27,7 +32,16 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
+  const names = Object.keys(object); // Devuelve el valor de los nombres
+  const objectArray = names.map(name => { // Recorremos y asignamos los nombres a los valores en un array de objetos
+    return {
+      name: name,
+      age: object[name],
+    };
+  });
+  return objectArray;
+  
+
 }
 
 // =============================================================================
@@ -39,7 +53,14 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const fruitsArray = Object.entries(object); // Convertimos el objeto en un array de arrays
+  const filteredFruits = fruitsArray.filter(function([, quantity]){ // Desestructuramos y filtramos con la cantidad de frutas
+    return quantity > 10; // Filtramos
+  });
+  const result = filteredFruits.map(function([fruit, quantity]) { // Volvemos a convertir el array de arrays en un array de objetos.
+    return { fruit: fruit, quantity: quantity };
+  });
+  return result;
 }
 
 // =============================================================================
@@ -50,5 +71,8 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const sumChar = Object.entries(object);
+  const flatArray = sumChar.flat();
+  const redArray = flatArray.reduce((acc, array) => acc + array.length, 0);
+  return redArray;
 }
