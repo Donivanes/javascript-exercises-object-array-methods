@@ -7,7 +7,10 @@
 
 function getTotalPrice(object) {
   // Aquí tu código
-}
+  const price = Object.values(object);
+  const totalPrice = price.reduce((acc, value) => acc + value, 0);
+  return totalPrice;
+};
 
 // =============================================================================
 // 2. Dado un objeto con nombres de personas como claves y edades como valores,
@@ -17,6 +20,10 @@ function getTotalPrice(object) {
 
 function getAverageAge(object) {
   // Aquí tu código
+  const ages = Object.values(object);
+  const totalAges = ages.reduce((acc, value)=>acc + value,0);
+  const averageAges = totalAges / ages.length
+  return averageAges
 }
 
 // =============================================================================
@@ -28,6 +35,11 @@ function getAverageAge(object) {
 
 function getPeopleArray(object) {
   // Aquí tu código
+  const result3 = Object.keys(object).map(el => ({
+    name: el,
+    age: object[el],
+  }))
+  return result3
 }
 
 // =============================================================================
@@ -40,6 +52,16 @@ function getPeopleArray(object) {
 
 function getAbundantFruits(object) {
   // Aquí tu código
+  const arrFruit = Object.entries(object)//converte en array 
+  const conditional = arrFruit.filter(function(fruit, quantity){
+    return quantity > 10 //filtra oq tem +10
+  });
+  const result4 = conditional.map(function([fruit, quantity]){
+    return {
+      fruit: fruit, 
+      quantity: quantity}
+    });
+  return result4
 }
 
 // =============================================================================
@@ -51,4 +73,8 @@ function getAbundantFruits(object) {
 
 function getCharacterCount(object) {
   // Aquí tu código
+  const arr = Object.entries(object)//transforma en arrays
+  const sumArr = arr.flat() //concatenar en un solo array
+  const result5 = sumArr.reduce((acc, array) => {acc + array.length, 0})
+  return result5
 }
